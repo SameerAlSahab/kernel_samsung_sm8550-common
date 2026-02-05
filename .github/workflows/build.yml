@@ -59,14 +59,14 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y \
-            bc bison build-essential ccache curl flex git \
+            bc bison build-essential ccache curl flex cpio git \
             libelf-dev libssl-dev lld llvm zip \
             python3 rsync unzip
 
       - name: Build kernel
         run: |
           chmod +x scripts/build.sh
-          bash scripts/build.sh
+          sudo bash scripts/build.sh
 
       - name: Upload AnyKernel3 zip
         uses: actions/upload-artifact@v4
